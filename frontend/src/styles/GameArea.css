@@ -1,0 +1,21 @@
+.game-area {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border: 2px solid black;
+    margin: 20px auto;
+    overflow: hidden;
+    background-color: lightblue;
+    background-size: cover;
+    animation: moveBackground linear infinite;
+  }
+  
+  @keyframes moveBackground {
+    0% {
+      background-position-x: 0;
+    }
+    100% {
+      background-position-x: -100%;
+    }
+  }
+  

@@ -1,12 +1,9 @@
-import axios from "axios";
+const axios = require("axios");
 
 const BACKEND_URL = "http://localhost:8080/api/users"; // Backend API URL
 
 // Function to register a user
-export const registerUser = async (
-  chatId: string,
-  username: string
-): Promise<string> => {
+const registerUser = async (chatId, username) => {
   try {
     const response = await axios.post(`${BACKEND_URL}/register`, {
       chatId,
@@ -23,7 +20,7 @@ export const registerUser = async (
 };
 
 // Function to check if a user exists
-export const checkUser = async (chatId: string): Promise<boolean> => {
+const checkUser = async (chatId) => {
   try {
     const response = await axios.post(`${BACKEND_URL}/check`, { chatId });
     return response.data.exists || !!response.data.id; // User exists if id is present or 'exists' is true
@@ -34,4 +31,9 @@ export const checkUser = async (chatId: string): Promise<boolean> => {
     }
     throw new Error("An unknown error occurred.");
   }
+};
+
+module.exports = {
+  registerUser,
+  checkUser,
 };
